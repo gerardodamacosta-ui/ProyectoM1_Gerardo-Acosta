@@ -166,12 +166,25 @@ select:focus-visible,
 .field-group {
 	margin: 0;
 	display: grid;
-	gap: 10px;
+	gap: 0;
 }
 
 .field-group label,
 .field-group legend {
 	font-weight: 700;
+	display: block;
+	line-height: 1.2;
+	margin: 0 0 10px;
+}
+
+fieldset.field-group {
+	border: none;
+	padding: 0;
+}
+
+fieldset.field-group legend {
+	padding: 0;
+	margin-bottom: 10px;
 }
 
 select,
@@ -204,6 +217,9 @@ select {
 	display: inline-flex;
 	gap: 8px;
 	flex-wrap: wrap;
+	border: 1px solid rgba(156, 194, 230, 0.28);
+	border-radius: var(--radius-sm);
+	padding: 10px 12px;
 }
 
 .toggle-button,
