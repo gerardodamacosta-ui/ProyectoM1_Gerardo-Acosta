@@ -165,10 +165,9 @@ function renderPalette(animateCards = false) {
 
 		card.innerHTML = `
 			<div class="card-top">
-				<span class="badge">Color ${index + 1}</span>
 				<button
 					type="button"
-					class="lock-button"
+					class="lock-button ${color.locked ? "is-locked" : ""}"
 					data-index="${index}"
 					aria-label="${color.locked ? "Desbloquear color" : "Bloquear color"}"
 					aria-pressed="${String(color.locked)}"
