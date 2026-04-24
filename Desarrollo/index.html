@@ -3,23 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Colores</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>Generador de paletas</title>
 </head>
 <body>
-    <h1>Generador de paleta de colores</h1>
-    <main>
-        <button id="generar"> Generar Paleta </button>
-        <select id="cantidad">
-            <option value="3">3 colores</option>
-            <option value="8">8 colores</option>
-            <option value="9">9 colores</option>
-        </select>
-            <div id="paleta"></div>
-    </main>
+    <div class="page-shell">
+        <header class="hero">
+            <p class="eyebrow">Proyecto integrador</p>
+            <h1>Generador de paletas de colores</h1>
+            <p class="hero-copy">
+                Crea combinaciones aleatorias, bloquea tus tonos favoritos y guarda tus paletas en el navegador.
+            </p>
+        </header>
+
+        <main class="layout">
+            <section class="panel controls-panel" aria-labelledby="configuracion-titulo">
+                <div class="panel-heading">
+                    <h2 id="configuracion-titulo">Configuración</h2>
+                    <p>Elige la cantidad de colores y el formato principal que quieres visualizar.</p>
+                </div>
+
+                <div class="controls-grid">
+                    <div class="field-group">
+                        <label for="cantidad">Tamaño de la paleta</label>
+                        <select id="cantidad" name="cantidad">
+                            <option value="6">6 colores</option>
+                            <option value="8">8 colores</option>
+                            <option value="9">9 colores</option>
+                        </select>
+                    </div>
+
+                    <fieldset class="field-group">
+                        <legend>Formato principal</legend>
+                        <div class="toggle-group" role="group" aria-label="Seleccionar formato de color">
+                            <button type="button" class="toggle-button is-active" data-format="hex" aria-pressed="true">HEX</button>
+                            <button type="button" class="toggle-button" data-format="hsl" aria-pressed="false">HSL</button>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="action-row">
+                    <button id="generar" class="primary-button" type="button">Generar paleta</button>
+                    <button id="guardar" class="secondary-button" type="button">Guardar paleta</button>
+                </div>
+
+                <p class="helper-text" id="copy-help">Haz clic sobre el código de un color para copiar su valor HEX.</p>
+            </section>
+
+            <section class="panel palette-panel" aria-labelledby="paleta-titulo">
+                <div class="panel-heading">
+                    <h2 id="paleta-titulo">Paleta actual</h2>
+                    <p>Los colores bloqueados se conservan al generar una nueva combinación.</p>
+                </div>
+
+                <div id="paleta" class="palette-grid" aria-describedby="copy-help"></div>
+            </section>
+
+            <section class="panel saved-panel" aria-labelledby="guardadas-titulo">
+                <div class="panel-heading">
+                    <h2 id="guardadas-titulo">Paletas guardadas</h2>
+                    <p>Se guardan en localStorage y permanecen disponibles en este navegador.</p>
+                </div>
+
+                <div id="guardadas" class="saved-list" aria-live="polite"></div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Desarrollado por aLifeStyle</p>
+        </footer>
+
+        <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
 </body>
-<footer>
-    <p class="color-footer">Desarrollado por aLifeStyle</p>
-</footer>
 </html>
