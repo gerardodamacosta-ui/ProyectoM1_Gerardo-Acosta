@@ -179,7 +179,7 @@ function renderPalette(animateCards = false) {
 			<div class="card-bottom">
 				<button
 					type="button"
-					class="color-copy"
+					class="color-copy ${state.format === "hsl" ? "is-hsl" : "is-hex"}"
 					data-hex="${color.hex}"
 					aria-label="Copiar ${color.hex} al portapapeles"
 					title="Copiar ${color.hex}"
