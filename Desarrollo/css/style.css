@@ -100,6 +100,13 @@ select:focus-visible,
 
 .layout {
 	display: grid;
+	grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+}
+
+.left-column {
+	display: grid;
 	gap: 18px;
 }
 
@@ -126,7 +133,7 @@ select:focus-visible,
 
 .controls-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-columns: 1fr;
 	gap: 18px;
 	align-items: end;
 }
@@ -255,6 +262,12 @@ select {
 	border: 1px solid rgba(255, 255, 255, 0.26);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
 	transform-origin: center bottom;
+	transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+	will-change: transform;
+	animation: none;
+}
+
+.color-card.is-entering {
 	animation: rise-in 280ms ease both;
 }
 
@@ -298,11 +311,13 @@ select {
 	align-items: center;
 	justify-content: center;
 	padding: 0;
+	flex-shrink: 0;
 }
 
 .lock-button svg {
 	width: 18px;
 	height: 18px;
+	pointer-events: none;
 }
 
 .card-bottom {
@@ -315,7 +330,9 @@ select {
 	padding: 14px 12px;
 	text-align: left;
 	font-weight: 800;
-	font-size: 1rem;
+	font-size: clamp(0.84rem, 1vw, 0.98rem);
+	line-height: 1.35;
+	overflow-wrap: anywhere;
 	backdrop-filter: blur(10px);
 	background: rgba(255, 252, 247, 0.84);
 }
@@ -343,13 +360,25 @@ select {
 
 .saved-item {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) auto;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 12px;
-	align-items: center;
+	align-items: start;
 	padding: 14px;
 	border-radius: var(--radius-md);
 	background: rgba(255, 252, 247, 0.7);
 	border: 1px solid rgba(73, 55, 35, 0.12);
+}
+
+.saved-actions {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.danger-button {
+	background: #fff4ef;
+	color: #8e3a19;
+	border-color: rgba(142, 58, 25, 0.18);
 }
 
 .saved-swatches {
@@ -422,6 +451,10 @@ select {
 }
 
 @media (max-width: 720px) {
+	.layout {
+		grid-template-columns: 1fr;
+	}
+
 	.page-shell {
 		width: min(100% - 20px, 1180px);
 		padding-top: 20px;
@@ -438,10 +471,6 @@ select {
 
 	.palette-grid {
 		grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-	}
-
-	.saved-item {
-		grid-template-columns: 1fr;
 	}
 }
 

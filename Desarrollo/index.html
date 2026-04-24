@@ -18,38 +18,49 @@
         </header>
 
         <main class="layout">
-            <section class="panel controls-panel" aria-labelledby="configuracion-titulo">
-                <div class="panel-heading">
-                    <h2 id="configuracion-titulo">Configuración</h2>
-                    <p>Elige la cantidad de colores y el formato principal que quieres visualizar.</p>
-                </div>
-
-                <div class="controls-grid">
-                    <div class="field-group">
-                        <label for="cantidad">Tamaño de la paleta</label>
-                        <select id="cantidad" name="cantidad">
-                            <option value="6">6 colores</option>
-                            <option value="8">8 colores</option>
-                            <option value="9">9 colores</option>
-                        </select>
+            <div class="left-column">
+                <section class="panel controls-panel" aria-labelledby="configuracion-titulo">
+                    <div class="panel-heading">
+                        <h2 id="configuracion-titulo">Configuración</h2>
+                        <p>Elige la cantidad de colores y el formato principal que quieres visualizar.</p>
                     </div>
 
-                    <fieldset class="field-group">
-                        <legend>Formato principal</legend>
-                        <div class="toggle-group" role="group" aria-label="Seleccionar formato de color">
-                            <button type="button" class="toggle-button is-active" data-format="hex" aria-pressed="true">HEX</button>
-                            <button type="button" class="toggle-button" data-format="hsl" aria-pressed="false">HSL</button>
+                    <div class="controls-grid">
+                        <div class="field-group">
+                            <label for="cantidad">Tamaño de la paleta</label>
+                            <select id="cantidad" name="cantidad">
+                                <option value="6">6 colores</option>
+                                <option value="8">8 colores</option>
+                                <option value="9">9 colores</option>
+                            </select>
                         </div>
-                    </fieldset>
-                </div>
 
-                <div class="action-row">
-                    <button id="generar" class="primary-button" type="button">Generar paleta</button>
-                    <button id="guardar" class="secondary-button" type="button">Guardar paleta</button>
-                </div>
+                        <fieldset class="field-group">
+                            <legend>Formato principal</legend>
+                            <div class="toggle-group" role="group" aria-label="Seleccionar formato de color">
+                                <button type="button" class="toggle-button is-active" data-format="hex" aria-pressed="true">HEX</button>
+                                <button type="button" class="toggle-button" data-format="hsl" aria-pressed="false">HSL</button>
+                            </div>
+                        </fieldset>
+                    </div>
 
-                <p class="helper-text" id="copy-help">Haz clic sobre el código de un color para copiar su valor HEX.</p>
-            </section>
+                    <div class="action-row">
+                        <button id="generar" class="primary-button" type="button">Generar paleta</button>
+                        <button id="guardar" class="secondary-button" type="button">Guardar paleta</button>
+                    </div>
+
+                    <p class="helper-text" id="copy-help">Haz clic sobre el código de un color para copiar su valor HEX.</p>
+                </section>
+
+                <section class="panel saved-panel" aria-labelledby="guardadas-titulo">
+                    <div class="panel-heading">
+                        <h2 id="guardadas-titulo">Paletas guardadas</h2>
+                        <p>Se guardan en localStorage y permanecen disponibles en este navegador.</p>
+                    </div>
+
+                    <div id="guardadas" class="saved-list" aria-live="polite"></div>
+                </section>
+            </div>
 
             <section class="panel palette-panel" aria-labelledby="paleta-titulo">
                 <div class="panel-heading">
@@ -58,15 +69,6 @@
                 </div>
 
                 <div id="paleta" class="palette-grid" aria-describedby="copy-help"></div>
-            </section>
-
-            <section class="panel saved-panel" aria-labelledby="guardadas-titulo">
-                <div class="panel-heading">
-                    <h2 id="guardadas-titulo">Paletas guardadas</h2>
-                    <p>Se guardan en localStorage y permanecen disponibles en este navegador.</p>
-                </div>
-
-                <div id="guardadas" class="saved-list" aria-live="polite"></div>
             </section>
         </main>
 

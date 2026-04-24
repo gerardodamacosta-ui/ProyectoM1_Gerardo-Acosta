@@ -110,7 +110,7 @@ function generatePalette() {
 		return createRandomColor(false);
 	});
 
-	renderPalette();
+	renderPalette(true);
 }
 
 function setFormat(nextFormat) {
@@ -151,12 +151,12 @@ function lockIcon(isLocked) {
 	`;
 }
 
-function renderPalette() {
+function renderPalette(animateCards = false) {
 	elements.palette.innerHTML = "";
 
 	state.palette.forEach((color, index) => {
 		const card = document.createElement("article");
-		card.className = "color-card";
+		card.className = animateCards ? "color-card is-entering" : "color-card";
 		card.style.backgroundColor = color.hex;
 		card.style.color = color.textColor;
 
@@ -256,11 +256,21 @@ function renderSavedPalettes() {
 					${palette.colors.map((color) => `<span class="saved-swatch" style="background:${color.hex}" title="${color.hex}"></span>`).join("")}
 				</div>
 			</div>
-			<button type="button" data-load-id="${palette.id}">Cargar</button>
+			<div class="saved-actions">
+				<button type="button" data-load-id="${palette.id}">Cargar</button>
+				<button type="button" class="danger-button" data-delete-id="${palette.id}">Eliminar</button>
+			</div>
 		`;
 
 		elements.saved.appendChild(item);
 	});
+}
+
+function deleteSavedPalette(paletteId) {
+	state.savedPalettes = state.savedPalettes.filter((palette) => palette.id !== paletteId);
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(state.savedPalettes));
+	renderSavedPalettes();
+	showToast("Paleta eliminada.");
 }
 
 async function copyHexValue(hexValue) {
@@ -291,6 +301,13 @@ function handlePaletteClick(event) {
 }
 
 function handleSavedClick(event) {
+	const deleteButton = event.target.closest("[data-delete-id]");
+
+	if (deleteButton) {
+		deleteSavedPalette(Number(deleteButton.dataset.deleteId));
+		return;
+	}
+
 	const button = event.target.closest("[data-load-id]");
 
 	if (!button) {
