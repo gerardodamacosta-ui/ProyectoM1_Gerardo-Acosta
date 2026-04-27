@@ -6,6 +6,14 @@ Esta web permite crear paletas de colores aleatorias, bloquear colores que quier
 
 No requiere instalación de programas adicionales ni conexión con servidores externos. Toda la información guardada permanece en el navegador mediante localStorage.
 
+## Tecnologías usadas
+
+- HTML5 semántico
+- CSS3 (Flexbox, Grid, variables CSS, media queries y animaciones)
+- JavaScript (ES6+) con manipulación del DOM
+- localStorage (guardado de paletas)
+- Clipboard API (copia de códigos HEX)
+
 ## Cómo abrir la aplicación
 
 1. Abre el archivo Desarrollo/index.html en tu navegador.
