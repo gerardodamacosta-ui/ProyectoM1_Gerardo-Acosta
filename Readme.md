@@ -65,3 +65,4 @@ https://gerardodamacosta-ui.github.io/ProyectoM1_Gerardo-Acosta/
 - Permitir renombrar paletas guardadas
 - Agregar atajos de teclado
 
+[⬆️ Volver arriba](#generador-de-paletas-de-colores)
