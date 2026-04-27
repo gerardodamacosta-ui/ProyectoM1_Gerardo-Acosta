@@ -1,5 +1,30 @@
 # Manual de uso - Generador de paletas de colores
 
+## Acceso rápido
+
+- [**Descripción**](#descripción)
+- [**Tecnologías usadas**](#tecnologías-usadas)
+- [**Cómo abrir la aplicación**](#cómo-abrir-la-aplicación)
+- [**Estructura de la interfaz**](#estructura-de-la-interfaz)
+- [**Funciones principales**](#funciones-principales)
+- [**1. Elegir el tamaño de la paleta**](#1-elegir-el-tamaño-de-la-paleta)
+- [**2. Cambiar el formato de visualización**](#2-cambiar-el-formato-de-visualización)
+- [**3. Generar una nueva paleta**](#3-generar-una-nueva-paleta)
+- [**4. Bloquear un color**](#4-bloquear-un-color)
+- [**5. Copiar un color**](#5-copiar-un-color)
+- [**6. Guardar una paleta**](#6-guardar-una-paleta)
+- [**7. Cargar una paleta guardada**](#7-cargar-una-paleta-guardada)
+- [**8. Eliminar una paleta guardada**](#8-eliminar-una-paleta-guardada)
+- [**Notificaciones del sistema**](#notificaciones-del-sistema)
+- [**Comportamiento del guardado**](#comportamiento-del-guardado)
+- [**Recomendaciones de uso**](#recomendaciones-de-uso)
+- [**Despliegue**](#despliegue)
+- [**Producción**](#producción)
+- [**Publicar cambios en GitHub Pages**](#publicar-cambios-en-github-pages)
+- [**Decisiones técnicas**](#decisiones-técnicas)
+- [**Mejoras futuras**](#mejoras-futuras)
+- [**Resumen rápido**](#resumen-rápido)
+
 ## Descripción
 
 Esta web permite crear paletas de colores aleatorias, bloquear colores que quieras conservar, copiar códigos de color y guardar tus combinaciones directamente en el navegador.
@@ -150,6 +175,40 @@ Esto significa que:
 - Cambia entre HEX y HSL para trabajar con el formato que necesites.
 - Guarda tus paletas favoritas antes de cerrar el navegador.
 - Usa la copia rápida para llevar los colores a otros proyectos de diseño o desarrollo.
+
+## Despliegue
+
+Este proyecto es estático (HTML, CSS y JavaScript puro), por lo que no requiere build ni backend para publicarse.
+
+### Producción
+
+La aplicación está desplegada en GitHub Pages en la siguiente URL:
+
+https://gerardodamacosta-ui.github.io/ProyectoM1_Gerardo-Acosta/
+
+### Publicar cambios en GitHub Pages
+
+1. Realiza tus cambios en el proyecto local.
+2. Sube los cambios a tu repositorio en GitHub (commit + push).
+3. Verifica en GitHub que Pages esté configurado para publicar desde la rama y carpeta correctas.
+4. Espera unos minutos y recarga la URL pública para ver la nueva versión.
+
+## Decisiones técnicas
+
+- Uso de JavaScript vanilla (sin frameworks): prioriza simplicidad, menor complejidad de setup y ejecución directa en navegador.
+- Persistencia con localStorage: permite guardar paletas sin servidor y mantener los datos entre sesiones en el mismo navegador.
+- Límite de 8 paletas guardadas: evita crecimiento indefinido en almacenamiento local y mantiene la lista de acceso rápida y ordenada.
+- Copia en formato HEX aunque se visualice HSL: estandariza el valor copiado para su uso inmediato en herramientas de diseño y CSS.
+- Estructura por carpetas (css/ y js/): separa responsabilidades y facilita mantenimiento básico del proyecto.
+
+## Mejoras futuras
+
+- Permitir exportar paletas en formatos adicionales (JSON, CSS variables o PNG).
+- Agregar opción para renombrar paletas guardadas.
+- Incorporar atajos de teclado para generar, bloquear y copiar colores.
+- Mejorar accesibilidad (contraste, foco visible y etiquetas ARIA en controles).
+- Añadir tests de lógica para generación de color y gestión de almacenamiento.
+- Implementar importación y compartido de paletas mediante URL.
 
 ## Resumen rápido
 
