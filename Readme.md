@@ -1,4 +1,4 @@
-# Manual de uso - Generador de paletas de colores
+# Instrucciones de uso - Generador de paletas de colores
 
 ## Acceso rápido
 
