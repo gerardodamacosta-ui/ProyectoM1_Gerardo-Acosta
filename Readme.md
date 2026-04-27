@@ -7,7 +7,7 @@ Aplicacion web para crear paletas de colores de forma rapida. Permite generar co
 ## Funcionalidades
 
 | Funcionalidad | Descripcion                                |
-|------------------------------------------------------------|
+|---|---|
 | Tamaño   | Elegi entre 6, 8 o 9 colores                    |
 | Formato  | Visualiza los codigos en HEX o HSL              |
 | Generar  | Crea una nueva paleta aleatoria                 |
