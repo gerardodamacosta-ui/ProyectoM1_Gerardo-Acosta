@@ -16,9 +16,11 @@ No requiere instalación de programas adicionales ni conexión con servidores ex
 
 ## Cómo abrir la aplicación
 
-1. Abre el archivo Desarrollo/index.html en tu navegador.
-2. Espera a que cargue la interfaz principal.
-3. La aplicación generará automáticamente una paleta inicial.
+1. Descargá el proyecto desde GitHub: hacé clic en el botón verde Code y luego en Download ZIP.
+2. Descomprimí el archivo ZIP en la carpeta que quieras.
+3. Entrá a la carpeta del proyecto descomprimido.
+4. Abrí el archivo index.html en tu navegador.
+5. Esperá a que cargue la interfaz principal. La aplicación generará automáticamente una paleta inicial.
 
 ## Estructura de la interfaz
 
